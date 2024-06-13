@@ -36,7 +36,7 @@ public class CheckDeposit implements Listener {
                     return;
                 }
                 if (vaultHook.deposit(offlinePlayer, amount)) {
-                    player.getInventory().removeItem(player.getInventory().getItemInMainHand());
+                    player.getInventory().getItemInMainHand().setAmount(mainHand.getAmount() -1);
                     player.sendMessage("§e" + amountint + "§f원짜리 수표가 계좌에 입금되었습니다");
                     return;
                 }

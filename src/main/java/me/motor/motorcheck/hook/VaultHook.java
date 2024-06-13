@@ -3,6 +3,7 @@ package me.motor.motorcheck.hook;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
 public class VaultHook {
@@ -43,13 +44,14 @@ public class VaultHook {
 
         int balance = getIntBalance(player);
         economy.depositPlayer(player, amount);
+
         return true;
 
     }
 
     public boolean withdraw(OfflinePlayer player, double amount) {
         int intAmount = (int) amount;
-        if (intAmount < 0) {
+        if (intAmount <= 0) {
             return false;
         }
 
@@ -58,6 +60,9 @@ public class VaultHook {
             return false;
         }
         economy.withdrawPlayer(player, amount);
+        Player to = (Player) player;
+
+        to.sendMessage("§e" + intAmount + "§f원이 인출되었고 수표가 발행되었습니다.");
         return true;
     }
 

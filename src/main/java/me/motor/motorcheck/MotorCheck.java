@@ -4,6 +4,7 @@ import me.motor.motorcheck.command.CommandTab;
 import me.motor.motorcheck.command.MotorCheckCommand;
 import me.motor.motorcheck.hook.VaultHook;
 import me.motor.motorcheck.listner.CheckDeposit;
+import me.motor.motorcheck.listner.InvClick;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -21,6 +22,7 @@ public final class MotorCheck extends JavaPlugin {
         getCommand("수표").setExecutor(new MotorCheckCommand());
         getCommand("수표").setTabCompleter(new CommandTab());
         getServer().getPluginManager().registerEvents((Listener) new CheckDeposit(), (Plugin) this);
+        getServer().getPluginManager().registerEvents((Listener) new InvClick(), (Plugin) this);
         // Plugin startup logic
 
     }
