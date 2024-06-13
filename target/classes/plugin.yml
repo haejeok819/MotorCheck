@@ -1,0 +1,6 @@
+name: MotorCheck
+version: '1.0.0'
+main: me.motor.motorcheck.MotorCheck
+api-version: '1.20'
+commands:
+  수표:
