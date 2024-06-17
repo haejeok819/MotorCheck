@@ -1,6 +1,6 @@
 name: MotorCheck
 version: '${project.version}'
 main: me.motor.motorcheck.MotorCheck
-api-version: '1.20'
+softdepend: [ Vault ]
 commands:
   수표:
